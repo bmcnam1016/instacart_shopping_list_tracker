@@ -1,0 +1,91 @@
+<!-- Validation failure messages -->
+<% if @food_item.errors.any? %>
+  <% @food_item.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Food Item</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_food_item" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for current_amount -->
+      <div class="form-group">
+        <label for="current_amount" class="control-label">
+          Current amount
+        </label>
+
+        <input type="text" id="current_amount" name="current_amount" placeholder="Current amount" class="form-control" value="<%= @food_item.current_amount %>">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @food_item.image %>">
+      </div>
+
+      <!-- Label and input for reorder_amount -->
+      <div class="form-group">
+        <label for="reorder_amount" class="control-label">
+          Reorder amount
+        </label>
+
+        <input type="text" id="reorder_amount" name="reorder_amount" placeholder="Reorder amount" class="form-control" value="<%= @food_item.reorder_amount %>">
+      </div>
+
+      <!-- Label and input for food_category_id -->
+      <div class="form-group">
+        <label for="food_category_id" class="control-label">
+          Food category
+        </label>
+
+        <input type="text" id="food_category_id" name="food_category_id" placeholder="Food category" class="form-control" value="<%= @food_item.food_category_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @food_item.user_id %>">
+      </div>
+
+      <!-- Label and input for amount_per_order -->
+      <div class="form-group">
+        <label for="amount_per_order" class="control-label">
+          Amount per order
+        </label>
+
+        <input type="text" id="amount_per_order" name="amount_per_order" placeholder="Amount per order" class="form-control" value="<%= @food_item.amount_per_order %>">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @food_item.name %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Food Item
+      </button>
+      or
+      <a href="/food_items">Cancel</a>
+    </form>
+  </div>
+</div>
