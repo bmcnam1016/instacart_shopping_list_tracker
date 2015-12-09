@@ -1,4 +1,13 @@
 class FoodItemsController < ApplicationController
+
+  before_action :current_user_must_be_owner, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_owner
+    @food_item = FoodItem.find(params[:id])
+    if @food_item.user != current_user
+      redirect_to root_url, :alert => "Not authorized for that."
+  end
+
   def index
     @food_items = FoodItem.all
   end
@@ -56,5 +65,9 @@ class FoodItemsController < ApplicationController
     @food_item.destroy
 
     redirect_to "/food_items", :notice => "Food item deleted."
+  end
+
+  def instalist
+
   end
 end

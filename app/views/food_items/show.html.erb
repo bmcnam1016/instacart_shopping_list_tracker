@@ -32,7 +32,7 @@
       <a href="/food_items" class="btn btn-primary">
         Back
       </a>
-      <% if food_item.user == current_user %>
+      <% if @food_item.user == current_user %>
       <a href="/food_items/<%= @food_item.id %>/edit" class="btn btn-warning">
         Edit
       </a>
