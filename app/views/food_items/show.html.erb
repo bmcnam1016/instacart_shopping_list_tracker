@@ -32,12 +32,15 @@
       <a href="/food_items" class="btn btn-primary">
         Back
       </a>
+      <% if food_item.user == current_user %>
       <a href="/food_items/<%= @food_item.id %>/edit" class="btn btn-warning">
         Edit
       </a>
       <a href="/delete_food_item/<%= @food_item.id %>" class="btn btn-danger" rel="nofollow">
         Delete
       </a>
+      <% end %>
+
     </div>
   </div>
 </div>

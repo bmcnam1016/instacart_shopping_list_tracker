@@ -54,14 +54,7 @@
         <input type="text" id="food_category_id" name="food_category_id" placeholder="Food category" class="form-control" value="<%= @food_item.food_category_id %>">
       </div>
 
-      <!-- Label and input for user_id -->
-      <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
-
-        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @food_item.user_id %>">
-      </div>
+      <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
 
       <!-- Label and input for amount_per_order -->
       <div class="form-group">
