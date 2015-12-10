@@ -69,6 +69,10 @@ class FoodItemsController < ApplicationController
   end
 
   def subtract
+    @food_item = FoodItem.find(params[:id])
+    @food_item.current_amount = @food_item.current_amount - 1
+    @food_item.save
+
     redirect_to "/food_items"
   end
 

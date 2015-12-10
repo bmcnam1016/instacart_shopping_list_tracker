@@ -5,23 +5,18 @@
       <tr>
         <th>Name</th>
         <th>Image</th>
-        <th>Current amount</th>
-        <th>Reorder amount</th>
         <th>Food category</th>
-        <th>User</th>
-        <th>Amount per order</th>
-        <th>Actions</th>
+        <th>Current amount</th>
+        <th>Amount purchased per Instacart order</th>
       </tr>
 
       <% @food_items.each do |food_item| %>
       <% if food_item.current_amount <= food_item.reorder_amount %>
       <tr>
         <td><%= food_item.name %></td>
-        <td><img src="<%= food_item.image %>" width="120"></td>
-        <td><%= food_item.current_amount %></td>
-        <td><%= food_item.reorder_amount %></td>
+        <td><img src="<%= food_item.image %>" width="100"></td>
         <td><%= food_item.food_category_id %></td>
-        <td><%= food_item.user_id %></td>
+        <td><%= food_item.current_amount %></td>
         <td><%= food_item.amount_per_order %></td>
       </tr>
       <% end %>

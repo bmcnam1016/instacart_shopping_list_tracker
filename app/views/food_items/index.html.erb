@@ -22,11 +22,11 @@
       <% @food_items.each do |food_item| %>
       <tr>
         <td><%= food_item.name %></td>
-        <td><img src="<%= food_item.image %>" width="120"></td>
+        <td><img src="<%= food_item.image %>" width="100"></td>
         <td><%= food_item.food_category_id %></td>
         <td><%= food_item.current_amount %></td>
         <td>
-    <form action="/subtract" method="post">
+    <form action="/food_items/subtract/<%= food_item.id %>" method="post">
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
     <button class = "glyphicon glyphicon-minus-sign">

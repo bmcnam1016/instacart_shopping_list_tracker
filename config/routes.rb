@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   #------------------------------
 
   get "/shopping", :controller => "shopping", :action => "index"
-  get "/shopping_add", :controller => "shopping", :action => "add"
+  post "/shopping_add", :controller => "shopping", :action => "add"
 
-  get "/subtract", :controller => "food_items", :action => "subtract"
+  post "/food_items/subtract/:id", :controller => "food_items", :action => "subtract"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

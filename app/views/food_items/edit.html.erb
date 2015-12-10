@@ -60,7 +60,11 @@
           Food category
         </label>
 
-        <input type="text" id="food_category_id" name="food_category_id" placeholder="Food category" class="form-control" value="<%= @food_item.food_category_id %>">
+        <select name='food_category_id'>
+          <% FoodCategory.all.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+        </select>
       </div>
 
       <!-- Label and input for user_id -->
