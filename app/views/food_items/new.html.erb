@@ -18,6 +18,15 @@
       <!-- Hidden input for authenticity token to protect from forgery -->
       <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @food_item.name %>">
+      </div>
+
       <!-- Label and input for current_amount -->
       <div class="form-group">
         <label for="current_amount" class="control-label">
@@ -51,7 +60,12 @@
           Food category
         </label>
 
-        <input type="text" id="food_category_id" name="food_category_id" placeholder="Food category" class="form-control" value="<%= @food_item.food_category_id %>">
+        <select name='food_category_id'>
+          <% FoodCategory.all.each do |category| %>
+            <option value="<%= category.id %>"><%= category.name %></option>
+          <% end %>
+        </select>
+
       </div>
 
       <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
@@ -63,15 +77,6 @@
         </label>
 
         <input type="text" id="amount_per_order" name="amount_per_order" placeholder="Amount per order" class="form-control" value="<%= @food_item.amount_per_order %>">
-      </div>
-
-      <!-- Label and input for name -->
-      <div class="form-group">
-        <label for="name" class="control-label">
-          Name
-        </label>
-
-        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @food_item.name %>">
       </div>
 
       <button class="btn btn-success">

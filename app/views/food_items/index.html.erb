@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>
-    Food items
-    <a href="/food_items/new" class="btn btn-lg btn-success">New Food item</a>
+    Food Items
+    <a href="/food_items/new" class="btn btn-lg btn-success">Add New Food Item</a>
   </h1>
 </div>
 
@@ -11,23 +11,36 @@
       <tr>
         <th>Name</th>
         <th>Image</th>
-        <th>Current amount</th>
-        <th>Reorder amount</th>
         <th>Food category</th>
-        <th>User</th>
-        <th>Amount per order</th>
+        <th>Current amount</th>
+        <th>Decrease amount</th>
+        <th>Amount purchased per Instacart order</th>
+        <th>Reorder Yet?</th>
         <th>Actions</th>
       </tr>
 
       <% @food_items.each do |food_item| %>
       <tr>
         <td><%= food_item.name %></td>
-        <td><%= food_item.image %></td>
-        <td><%= food_item.current_amount %></td>
-        <td><%= food_item.reorder_amount %></td>
+        <td><img src="<%= food_item.image %>" width="120"></td>
         <td><%= food_item.food_category_id %></td>
-        <td><%= food_item.user_id %></td>
+        <td><%= food_item.current_amount %></td>
+        <td>
+    <form action="/subtract" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+    <button class = "glyphicon glyphicon-minus-sign">
+    </button></form>
+        </td>
         <td><%= food_item.amount_per_order %></td>
+        <td>
+        <% if food_item.current_amount <= food_item.reorder_amount %>
+        Yes
+        <% elsif %>
+        No
+        <% end %>
+
+        </td>
         <td>
           <a href="/food_items/<%= food_item.id %>" class="btn btn-primary">Show</a>
           <a href="/food_items/<%= food_item.id %>/edit" class="btn btn-warning">Edit</a>

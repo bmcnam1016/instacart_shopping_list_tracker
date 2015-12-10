@@ -1,22 +1,7 @@
 Rails.application.routes.draw do
+    devise_for :users
+
   root "food_items#index"
-
-  # Routes for the Food_category resource:
-  # CREATE
-  get "/food_categories/new", :controller => "food_categories", :action => "new"
-  post "/create_food_category", :controller => "food_categories", :action => "create"
-
-  # READ
-  get "/food_categories", :controller => "food_categories", :action => "index"
-  get "/food_categories/:id", :controller => "food_categories", :action => "show"
-
-  # UPDATE
-  get "/food_categories/:id/edit", :controller => "food_categories", :action => "edit"
-  post "/update_food_category/:id", :controller => "food_categories", :action => "update"
-
-  # DELETE
-  get "/delete_food_category/:id", :controller => "food_categories", :action => "destroy"
-  #------------------------------
 
   # Routes for the Food_item resource:
   # CREATE
@@ -35,7 +20,11 @@ Rails.application.routes.draw do
   get "/delete_food_item/:id", :controller => "food_items", :action => "destroy"
   #------------------------------
 
-  devise_for :users
+  get "/shopping", :controller => "shopping", :action => "index"
+  get "/shopping_add", :controller => "shopping", :action => "add"
+
+  get "/subtract", :controller => "food_items", :action => "subtract"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

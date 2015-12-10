@@ -1,0 +1,42 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Current amount</th>
+        <th>Reorder amount</th>
+        <th>Food category</th>
+        <th>User</th>
+        <th>Amount per order</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @food_items.each do |food_item| %>
+      <% if food_item.current_amount <= food_item.reorder_amount %>
+      <tr>
+        <td><%= food_item.name %></td>
+        <td><img src="<%= food_item.image %>" width="120"></td>
+        <td><%= food_item.current_amount %></td>
+        <td><%= food_item.reorder_amount %></td>
+        <td><%= food_item.food_category_id %></td>
+        <td><%= food_item.user_id %></td>
+        <td><%= food_item.amount_per_order %></td>
+      </tr>
+      <% end %>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+    <form action="/shopping_add" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+    <button class="btn btn-success">
+        Reordered All
+    </button>
+      or
+    <a href="/food_items">Return to Food Item List</a>
+    </form>

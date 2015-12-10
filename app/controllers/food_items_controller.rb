@@ -6,6 +6,7 @@ class FoodItemsController < ApplicationController
     @food_item = FoodItem.find(params[:id])
     if @food_item.user != current_user
       redirect_to root_url, :alert => "Not authorized for that."
+    end
   end
 
   def index
@@ -67,7 +68,8 @@ class FoodItemsController < ApplicationController
     redirect_to "/food_items", :notice => "Food item deleted."
   end
 
-  def instalist
-
+  def subtract
+    redirect_to "/food_items"
   end
+
 end
