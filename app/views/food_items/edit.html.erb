@@ -69,9 +69,6 @@
 
       <!-- Label and input for user_id -->
       <div class="form-group">
-        <label for="user_id" class="control-label">
-          User
-        </label>
 
         <input type="hidden" id="user_id" name="user_id" value="<%= @food_item.user_id %>">
       </div>
@@ -89,7 +86,7 @@
         Update Food Item
       </button>
       or
-      <a href="/food_items/<%= @food_item.id %>">Cancel</a>
+      <a href="/food_items/">Cancel</a>
     </form>
   </div>
 </div>

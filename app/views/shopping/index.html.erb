@@ -3,21 +3,21 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>Name</th>
-        <th>Image</th>
-        <th>Food category</th>
-        <th>Current amount</th>
-        <th>Amount purchased per Instacart order</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Image</th>
+        <th class="text-center">Food category</th>
+        <th class="text-center">Current amount</th>
+        <th class="text-center">Amount purchased per Instacart order</th>
       </tr>
 
       <% @food_items.each do |food_item| %>
       <% if food_item.current_amount <= food_item.reorder_amount %>
       <tr>
-        <td><%= food_item.name %></td>
-        <td><img src="<%= food_item.image %>" width="100"></td>
-        <td><%= food_item.food_category_id %></td>
-        <td><%= food_item.current_amount %></td>
-        <td><%= food_item.amount_per_order %></td>
+        <td class="text-center"><%= food_item.name %></td>
+        <td class="text-center"><img src="<%= food_item.image %>" width="100"></td>
+        <td class="text-center"><%= food_item.food_category.name %></td>
+        <td class="text-center"><%= food_item.current_amount %></td>
+        <td class="text-center"><%= food_item.amount_per_order %></td>
       </tr>
       <% end %>
       <% end %>
