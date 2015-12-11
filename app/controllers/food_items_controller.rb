@@ -10,7 +10,7 @@ class FoodItemsController < ApplicationController
   end
 
   def index
-    @food_items = FoodItem.all
+    @food_items = current_user.food_items
   end
 
   def show
