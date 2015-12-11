@@ -12,16 +12,13 @@
       <dd><%= @food_item.current_amount %></dd>
 
       <dt>Image</dt>
-      <dd><img src="<%= @food_item.image %>" width="480"></dd>
+      <dd><img src="<%= @food_item.image %>" width="120"></dd>
 
       <dt>Reorder amount</dt>
       <dd><%= @food_item.reorder_amount %></dd>
 
       <dt>Food category</dt>
-      <dd><%= @food_item.food_category_id %></dd>
-
-      <dt>User</dt>
-      <dd><%= @food_item.user_id %></dd>
+      <dd><%= @food_item.food_category.name %></dd>
 
       <dt>Amount per order</dt>
       <dd><%= @food_item.amount_per_order %></dd>
